@@ -1,0 +1,19 @@
+body {
+    background: url("https://www.toptal.com/designers/subtlepatterns/patterns/purty_wood.png");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+    
+}
+li {
+    padding: 25px;
+    background-color: rgba(0, 0, 0, .3);
+}
+li:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, .5);
+}
