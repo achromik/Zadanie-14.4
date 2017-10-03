@@ -68,15 +68,6 @@ var MovieImage = React.createClass({
     }
 })
 
-
-// var moviesElements = movies.map(function(movie){
-//     return React.createElement('li', {key: movie.id},
-//         React.createElement('h2', {}, movie.title),
-//         React.createElement('p', {}, movie.desc),
-//         React.createElement('img', {src: movie.photo}, )
-//     );
-// });
-
 var movie = movies.map(function(movie) {
     return (
         React.createElement(Movie, {key:movie.id, movie: movie})
@@ -84,10 +75,21 @@ var movie = movies.map(function(movie) {
     )
 });
 
+var MovieList = React.createClass({
+   
+    render: function() {
+        return (
+            
+            React.createElement('ul', {}, movie)
+        )
+    }
+});
+
+
 
 var element = React.createElement('div', {}, 
     React.createElement('h1', {}, 'Lista filmów'),
-    React.createElement('ul', {}, movie)
+    React.createElement(MovieList, {})
 );
         
 
