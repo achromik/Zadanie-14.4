@@ -33,9 +33,9 @@ var Movie = React.createClass({
     render : function() {
         return (
             React.createElement('li', {},
-                React.createElement(MovieTitle, {movie: this.props.movie}),
-                React.createElement(MovieDesc, {movie: this.props.movie}),
-                React.createElement(MovieImage, {movie: this.props.movie})
+                React.createElement(MovieTitle, {title: this.props.movie.title}),
+                React.createElement(MovieDesc, {desc: this.props.movie.desc}),
+                React.createElement(MovieImage, {img: this.props.movie.photo})
             )   
         )
     }
@@ -43,32 +43,32 @@ var Movie = React.createClass({
 
 var MovieDesc = React.createClass({
     propTypes: {
-        movie: React.PropTypes.object.isRequired,
+        desc: React.PropTypes.string.isRequired,
     },
     render : function() {
-        return React.createElement('p', {}, this.props.movie.desc)
+        return React.createElement('p', {}, this.props.desc)
     }
 })
 
 var MovieTitle = React.createClass({
     propTypes: {
-        movie: React.PropTypes.object.isRequired,
+       title: React.PropTypes.string.isRequired,
     },
     render: function() {
-        return React.createElement('h2', {}, this.props.movie.title)
+        return React.createElement('h2', {}, this.props.title)
     }
 })
 
 var MovieImage = React.createClass({
     propTypes: {
-        movie: React.PropTypes.object.isRequired,
+        img: React.PropTypes.string.isRequired,
     },
     render: function() {
-        return React.createElement('img', {src: this.props.movie.photo})
+        return React.createElement('img', {src: this.props.img})
     }
 })
 
-var movie = movies.map(function(movie) {
+var moviesElements = movies.map(function(movie) {
     return (
         React.createElement(Movie, {key:movie.id, movie: movie})
 
@@ -80,7 +80,7 @@ var MovieList = React.createClass({
     render: function() {
         return (
             
-            React.createElement('ul', {}, movie)
+            React.createElement('ul', {}, moviesElements)
         )
     }
 });
